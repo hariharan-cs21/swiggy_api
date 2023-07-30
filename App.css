@@ -1,0 +1,111 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: orange;
+}
+
+.swiggy {
+    border-radius: 10px;
+    margin: 14px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.navbar li {
+    padding: 10px;
+}
+
+.search-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 14px;
+}
+
+.searchbox {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.searchbox::placeholder {
+    color: #888;
+}
+
+.searchbox:focus {
+    outline: none;
+    border-color: #6e98f3;
+}
+
+.search-button {
+    padding: 10px 20px;
+    color: orange;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: orange;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.cardview {
+    padding: 5px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    margin-top: 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cardHotel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+.himg {
+    border: 2px solid orange;
+    border-radius: 5px;
+    width: 100%;
+
+}
+
+@media (max-width: 650px) {
+    .cardview {
+        width: 90%;
+        border-radius: 10px;
+    }
+
+    .himg {
+        width: 100%;
+    }
+}
+
+.loading,
+.load {
+    display: flex;
+    font-weight: 100;
+    vertical-align: middle;
+    justify-content: center;
+}
