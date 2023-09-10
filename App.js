@@ -7,19 +7,22 @@ import { About } from './src/components/About';
 import { Error } from './src/components/Error'
 import HotelMenu from './src/components/HotelMenu'
 import { Shimmer } from './src/components/Shimmer';
-
+import { Provider } from 'react-redux';
+import store from './src/utils/store';
+import Cart from './src/components/Cart';
 
 const App = () => {
     return (
         <>
-
-            <Heading />
-            <Outlet />  {/* Filled with children configuration*/}
+            <Provider store={store}>
+                <Heading />
+                <Outlet />  {/* Filled with children configuration*/}
+            </Provider>
         </>
     );
 };
 
-const Instamart = React.lazy(() => import('./src/components/Mart'));
+const Instamart = lazy(() => import('./src/components/Mart'));
 
 
 const Myrouter = createBrowserRouter([
@@ -35,6 +38,10 @@ const Myrouter = createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
+            },
+            {
+                path: "/cart",
+                element: <Cart />,
             },
             {
                 path: "/hotelmenu/:id",

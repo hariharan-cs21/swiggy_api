@@ -1,111 +1,189 @@
 body,
 html {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 0;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    background-color: orange;
+  display: flex;
+  justify-content: space-between;
+  background-color: orange;
 }
 
 .swiggy {
-    border-radius: 10px;
-    margin: 14px;
+  border-radius: 10px;
+  margin: 14px;
 }
 
 .navbar ul {
-    display: flex;
-    list-style-type: none;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-left: 5px;
+  display: flex;
+  list-style-type: none;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-left: 5px;
 }
 
 .navbar li {
-    padding: 10px;
+  padding: 10px;
 }
 
 .search-view {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 14px;
 }
 
 .searchbox {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 300px;
-    margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 300px;
+  margin-right: 10px;
 }
 
 .searchbox::placeholder {
-    color: #888;
+  color: #888;
 }
 
 .searchbox:focus {
-    outline: none;
-    border-color: #6e98f3;
+  outline: none;
+  border-color: #6e98f3;
 }
 
 .search-button {
-    padding: 10px 20px;
-    color: orange;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: orange;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: white;
+  padding: 10px 20px;
+  color: orange;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: orange;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: white;
 }
 
 .cardview {
-    padding: 5px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    color: black;
-    margin-top: 8px;
+  padding: 5px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  margin-top: 8px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .cardHotel {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
 }
 
-.himg {
-    border: 2px solid orange;
-    border-radius: 5px;
-    width: 100%;
 
-}
-
-@media (max-width: 650px) {
-    .cardview {
-        width: 90%;
-        border-radius: 10px;
-    }
-
-    .himg {
-        width: 100%;
-    }
-}
 
 .loading,
 .load {
-    display: flex;
-    font-weight: 100;
-    vertical-align: middle;
-    justify-content: center;
+  display: flex;
+  font-weight: 100;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+
+/* Updated styles for RestaurantMenu component */
+
+.restaurant-container {
+  display: flex;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.restaurant-info {
+  flex: 1;
+  padding: 20px;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.restaurant-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.restaurant-city {
+  font-size: 20px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.menu-items {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.menu-items::-webkit-scrollbar {
+  width: 5px;
+}
+
+.menu-items::-webkit-scrollbar-thumb {
+  background:  #f57c00;
+  border-radius: 5px;
+}
+
+
+
+
+.menu-items-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.item-price {
+  font-size: 16px;
+  color: #666;
+}
+
+.add-to-cart {
+  background-color: #f57c00;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #e65100;
 }

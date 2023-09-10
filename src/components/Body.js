@@ -8,7 +8,6 @@ import { swiggy_api_URL } from './constants';
 import { Link } from "react-router-dom";
 import On_Offline from "../utils/On_Offline";
 
-
 function filterHotel(searchText, hotels) {
     return hotels.filter((i) => i.info.name.toLowerCase().includes(searchText.toLowerCase()));
 }
@@ -17,6 +16,8 @@ const Body = () => {
     const [allHotels, setAllHotels] = useState([]);
     const [hotels, setHotels] = useState([]);
     const [searchText, setSearchText] = useState("");
+
+
 
     useEffect(() => {
         getHotels();
@@ -35,18 +36,24 @@ const Body = () => {
         }
     }
 
-    const isOnline = On_Offline()
-
-    if (!isOnline) {
-        return <h2>No internet guys</h2>
-    }
-
     useEffect(() => {
         const filteredHotels = filterHotel(searchText, allHotels);
         setHotels(filteredHotels);
     }, [searchText, allHotels]);
 
+    const onlineStatus = On_Offline();
 
+    if (onlineStatus === false) {
+        return (
+            <div className="flex justify-center items-center h-screen bg-gradient-to-br from-purple-600 to-indigo-800">
+                <h1 className="bg-orange-400 py-4 px-6 mx-8 my-4 inline-block text-xl font-semibold text-white rounded-md shadow-lg">
+                    <span className="mr-2">⚠️</span> Oops! It seems like you're currently offline. Please take a moment to check your internet connection.
+                    நெட் ஆன் பண்ணுடா
+                </h1>
+            </div>
+
+        );
+    }
 
     return allHotels.length === 0 ? (
         <Shimmer />

@@ -1,19 +1,78 @@
 import React from "react";
-import "../../App.css"
 
 const HotelCard = ({ name, area, lastMileTravelString, hphoto }) => {
-    const img_url = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+  const img_url =
+    "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-    return (
-        <div className="cardview">
-            {hphoto ? (
-                <img src={img_url + hphoto} width="300px" height="200px" alt="Hotel Image" className="himg" />
-            ) : null}
-            <h2>{name}</h2>
-            <h4 style={{ fontSize: "13px" }}>{area}</h4>
-            <h4>{lastMileTravelString} stars</h4>
-        </div>
-    );
+  const cardStyles = {
+    backgroundColor: "#fff",
+    border: "1px solid #f1f1f1",
+    borderRadius: "10px",
+    width: "300px",
+    display: "inline-block",
+    verticalAlign: "top",
+    margin: "20px",
+    fontFamily: "Arial, sans-serif",
+    transition: "transform 0.2s, box-shadow 0.2s",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    color: "#333",
+  };
+
+  const imgStyles = {
+    width: "100%",
+    height: "200px",
+    objectFit: "cover",
+    borderRadius: "10px 10px 0 0",
+  };
+
+  const contentStyles = {
+    padding: "20px",
+  };
+
+  const nameStyles = {
+    fontSize: "24px",
+    fontWeight: "bold",
+    margin: "10px 0",
+    color: "#333", 
+  };
+
+  const areaStyles = {
+    fontSize: "18px",
+    margin: "5px 0",
+    color: "#888",
+  };
+
+  const ratingStyles = {
+    fontSize: "20px",
+    fontWeight: "bold",
+    color: "#fc8019", 
+  };
+
+
+  const handleCardMouseLeave = () => {
+    cardStyles.transform = "scale(1)";
+    cardStyles.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+  };
+
+  return (
+    <div
+      style={cardStyles}
+      onMouseLeave={handleCardMouseLeave}
+    >
+      {hphoto && (
+        <img
+          src={img_url + hphoto}
+          alt="Hotel Image"
+          style={imgStyles}
+        />
+      )}
+      <div style={contentStyles}>
+        <h2 style={nameStyles}>{name}</h2>
+        <h4 style={areaStyles}>{area}</h4>
+        <h4 style={ratingStyles}>{lastMileTravelString} stars</h4>
+      </div>
+    </div>
+  );
 };
 
 export default HotelCard;

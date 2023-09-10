@@ -1,43 +1,71 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IMG_CDN_URL } from "./constants";
+import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "./constants";
 import { Shimmer } from "./Shimmer";
 import "../../App.css";
 import { getRestaurantInfo } from "../utils/api";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const RestaurantMenu = () => {
-    const { id } = useParams();
-    const [restaurant, setRestaurant] = useState(null);
-    const [menuItems, setMenuItems] = useState([]);
+  const { id } = useParams();
+  const [restaurant, setRestaurant] = useState(null);
+  const [menuItems, setMenuItems] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const { restaurantData, menuItems } = await getRestaurantInfo(id);
-            setRestaurant(restaurantData);
-            setMenuItems(menuItems);
-        }
-        fetchData();
-    }, [id]);
+  useEffect(() => {
+    async function fetchData() {
+      const { restaurantData, menuItems } = await getRestaurantInfo(id);
+      setRestaurant(restaurantData);
+      setMenuItems(menuItems);
+    }
+    fetchData();
+  }, [id]);
 
-    return !restaurant ? (
-        <Shimmer />
-    ) : (
-        <div className="restaurant-container">
-            <div className="restaurant-menu">
-                <h2 className="restaurant-name">{restaurant.name}</h2>
+  const dispatch = useDispatch();
+  const addFoodItem = (namee) => {
+    dispatch(addItem(namee));
+  };
+
+  return !restaurant ? (
+    <Shimmer />
+  ) : (
+    <div className="restaurant-container">
+      <div className="restaurant-info">
+        <h2 className="restaurant-name">{restaurant.name}</h2>
+        <img
+          src={IMG_CDN_URL + restaurant.cloudinaryImageId}
+          alt={restaurant.name} style={{height:"250px"}}
+          className="restaurant-image"
+        />
+        <p className="restaurant-city">{restaurant.city}</p>
+      </div>
+      <div className="menu-items">
+        <ul className="menu-items-list">
+          {menuItems.map((item) => (
+            <li key={item.id} className="menu-item">
+              <div className="item-details">
+                <h3 className="item-name">{item.name}</h3>
                 <img
-                    src={IMG_CDN_URL + restaurant.cloudinaryImageId}
-                    alt={restaurant.name}
-                    className="restaurant-image"
+                  src={ITEM_IMG_CDN_URL + item.imageId}
+                  alt={item.name} style={{borderRadius:"10px"}}
+                  height="80px"
                 />
-                <h2 className="restaurant-city">{restaurant.city}</h2>
-            </div>
-            <ul className="menu-items">
-                {menuItems.map((item) => {
-                    return <li key={item.id}>{item?.name}</li>;
-                })}
-            </ul>
-        </div>
-    );
+                <p className="item-price">Rs {item.price / 100}</p>
+              </div>
+              <button
+                className="add-to-cart"
+                onClick={() => {
+                  addFoodItem(item);
+                }}
+              >
+                Add to Cart
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default RestaurantMenu;

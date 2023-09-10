@@ -1,6 +1,6 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 
 const Title = () => {
     return (
@@ -14,7 +14,8 @@ const Title = () => {
     );
 };
 const Heading = () => {
-
+    const cartItems = useSelector(store => store.cart.items)
+console.log(cartItems);
     return (
         <div className="header">
             <Title />
@@ -29,9 +30,11 @@ const Heading = () => {
                     <Link to="/about" style={{ textDecoration: "none", color: "black" }}>
                         <li>About</li>
                     </Link>
+                    <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
                     <div style={{ fontSize: "1.4rem", display: "flex", justifyContent: "flex-end", alignItems: "center", marginLeft: "0.5rem", marginRight: "1.5rem" }}>
-                        <i className="uil uil-shopping-cart" ></i><p style={{ fontSize: "0.8rem" }}>Cart</p>
+                        <i className="uil uil-shopping-cart" ></i><p style={{ fontSize: "0.8rem" }}>Cart - {cartItems.length} items</p>
                     </div>
+                    </Link>
                 </ul>
             </div>
         </div>
