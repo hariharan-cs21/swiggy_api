@@ -15,7 +15,7 @@ const Title = () => {
 };
 const Heading = () => {
     const cartItems = useSelector(store => store.cart.items)
-console.log(cartItems);
+    console.log(cartItems);
     return (
         <div className="header">
             <Title />
@@ -27,13 +27,11 @@ console.log(cartItems);
                     <Link to="/instamart" style={{ textDecoration: "none", color: "black" }}>
                         <li>Instamart</li>
                     </Link>
-                    <Link to="/about" style={{ textDecoration: "none", color: "black" }}>
-                        <li>About</li>
-                    </Link>
+
                     <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
-                    <div style={{ fontSize: "1.4rem", display: "flex", justifyContent: "flex-end", alignItems: "center", marginLeft: "0.5rem", marginRight: "1.5rem" }}>
-                        <i className="uil uil-shopping-cart" ></i><p style={{ fontSize: "0.8rem" }}>Cart - {cartItems.length} items</p>
-                    </div>
+                        <div style={{ fontSize: "1.4rem", display: "flex", justifyContent: "flex-end", alignItems: "center", marginLeft: "0.5rem", marginRight: "1.5rem" }}>
+                            <i className="uil uil-shopping-cart" ></i><p style={{ fontSize: "0.8rem" }}>{cartItems.length} items</p>
+                        </div>
                     </Link>
                 </ul>
             </div>

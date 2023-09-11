@@ -25,7 +25,6 @@ const RestaurantMenu = () => {
   const addFoodItem = (namee) => {
     dispatch(addItem(namee));
   };
-
   return !restaurant ? (
     <Shimmer />
   ) : (
@@ -38,6 +37,8 @@ const RestaurantMenu = () => {
           className="restaurant-image"
         />
         <p className="restaurant-city">{restaurant.city}</p>
+        <p className="restaurant-city">{restaurant.ratings}</p>
+
       </div>
       <div className="menu-items">
         <ul className="menu-items-list">

@@ -21,7 +21,7 @@ html {
   list-style-type: none;
   font-weight: 700;
   font-size: 1rem;
-  margin-left: 5px;
+
 }
 
 .navbar li {
@@ -40,6 +40,7 @@ html {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  border-radius: 10px;
   font-size: 16px;
   width: 300px;
   margin-right: 10px;
@@ -140,7 +141,7 @@ a {
 }
 
 .menu-items::-webkit-scrollbar-thumb {
-  background:  #f57c00;
+  background: #f57c00;
   border-radius: 5px;
 }
 
@@ -186,4 +187,16 @@ a {
 
 .add-to-cart:hover {
   background-color: #e65100;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .restaurant-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
 }

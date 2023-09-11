@@ -48,13 +48,13 @@ const Body = () => {
             <div className="flex justify-center items-center h-screen bg-gradient-to-br from-purple-600 to-indigo-800">
                 <h1 className="bg-orange-400 py-4 px-6 mx-8 my-4 inline-block text-xl font-semibold text-white rounded-md shadow-lg">
                     <span className="mr-2">⚠️</span> Oops! It seems like you're currently offline. Please take a moment to check your internet connection.
-                    நெட் ஆன் பண்ணுடா
+                
                 </h1>
             </div>
 
         );
     }
-
+    console.log(allHotels);
     return allHotels.length === 0 ? (
         <Shimmer />
     ) : (
@@ -86,7 +86,8 @@ const Body = () => {
                                 hphoto={restaurant.info.cloudinaryImageId}
                                 name={restaurant.info.name}
                                 area={restaurant.info.areaName}
-                                lastMileTravelString={restaurant.info.avgRating}
+                                avgRatingString={restaurant.info.avgRatingString}
+                                costForTwo={restaurant.info.costForTwo}
                             />
                         </Link>
                     );

@@ -1,6 +1,7 @@
 import React from "react";
 
-const HotelCard = ({ name, area, lastMileTravelString, hphoto }) => {
+const HotelCard = ({ name, area, costForTwo, hphoto, avgRatingString
+}) => {
   const img_url =
     "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
@@ -32,8 +33,8 @@ const HotelCard = ({ name, area, lastMileTravelString, hphoto }) => {
   const nameStyles = {
     fontSize: "24px",
     fontWeight: "bold",
-    margin: "10px 0",
-    color: "#333", 
+    margin: "5px 0",
+    color: "#333",
   };
 
   const areaStyles = {
@@ -43,9 +44,9 @@ const HotelCard = ({ name, area, lastMileTravelString, hphoto }) => {
   };
 
   const ratingStyles = {
-    fontSize: "20px",
+    fontSize: "17px",
     fontWeight: "bold",
-    color: "#fc8019", 
+    color: "#fc8019",
   };
 
 
@@ -69,7 +70,8 @@ const HotelCard = ({ name, area, lastMileTravelString, hphoto }) => {
       <div style={contentStyles}>
         <h2 style={nameStyles}>{name}</h2>
         <h4 style={areaStyles}>{area}</h4>
-        <h4 style={ratingStyles}>{lastMileTravelString} stars</h4>
+        <h4 style={ratingStyles}>⭐{avgRatingString}</h4>
+        <p>{costForTwo}</p>
       </div>
     </div>
   );

@@ -35,10 +35,7 @@ const Myrouter = createBrowserRouter([
                 path: "/",
                 element: <Body />,
             },
-            {
-                path: "/about",
-                element: <About />,
-            },
+
             {
                 path: "/cart",
                 element: <Cart />,
