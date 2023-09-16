@@ -17,8 +17,6 @@ const Body = () => {
     const [hotels, setHotels] = useState([]);
     const [searchText, setSearchText] = useState("");
 
-
-
     useEffect(() => {
         getHotels();
     }, []);
@@ -48,7 +46,7 @@ const Body = () => {
             <div className="flex justify-center items-center h-screen bg-gradient-to-br from-purple-600 to-indigo-800">
                 <h1 className="bg-orange-400 py-4 px-6 mx-8 my-4 inline-block text-xl font-semibold text-white rounded-md shadow-lg">
                     <span className="mr-2">⚠️</span> Oops! It seems like you're currently offline. Please take a moment to check your internet connection.
-                
+
                 </h1>
             </div>
 
