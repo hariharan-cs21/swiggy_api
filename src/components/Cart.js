@@ -31,7 +31,7 @@ const Cart = () => {
                         <div className="item-details">
                             <div className="item-header">
                                 <h3 className="item-name">{item.name}</h3>
-                                <p className="item-price">Rs {item.price / 100}</p>
+                                <p className="item-price">Rs {(item.price / 100)}</p>
                                 <p className='cart-remove' onClick={() => delItem(index)}>Remove</p>
                             </div>
                         </div>

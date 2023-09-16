@@ -1,41 +1,53 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Heading.css";
+
 
 const Title = () => {
     return (
-        <img
-            src="https://play-lh.googleusercontent.com/A8jF58KO1y2uHPBUaaHbs9zSvPHoS1FrMdrg8jooV9ftDidkOhnKNWacfPhjKae1IA=w480-h960-rw"
-            height="40px"
-            width="40px"
-            className="swiggy"
-            alt=""
-        />
+        <>
+            <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/306px-Swiggy_logo.svg.png?20220725160748"
+                height="40px"
+                width="150px"
+                className="swiggy"
+                alt=""
+            />
+        </>
     );
 };
+
 const Heading = () => {
-    const cartItems = useSelector(store => store.cart.items)
-    console.log(cartItems);
+    const cartItems = useSelector((store) => store.cart.items);
+
     return (
         <div className="header">
             <Title />
-            <div className="navbar" >
+            <div className="navbar">
                 <ul>
-                    <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-                        <li>Home</li>
-                    </Link>
-                    <Link to="/instamart" style={{ textDecoration: "none", color: "black" }}>
-                        <li>Instamart</li>
-                    </Link>
-
-                    <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
-                        <div style={{ fontSize: "1.4rem", display: "flex", justifyContent: "flex-end", alignItems: "center", marginLeft: "0.5rem", marginRight: "1.5rem" }}>
-                            <i className="uil uil-shopping-cart" ></i><p style={{ fontSize: "0.8rem" }}>{cartItems.length} items</p>
-                        </div>
-                    </Link>
+                    <li>
+                        <Link to="/" className="nav-link">
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/instamart" className="nav-link">
+                            Instamart
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/cart" className="nav-link">
+                            <div className="cart-icon">
+                                <i className="uil uil-shopping-cart"></i>
+                                <span className="cart-count">{cartItems.length}</span>
+                            </div>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </div>
     );
 };
-export default Heading
+
+export default Heading;
